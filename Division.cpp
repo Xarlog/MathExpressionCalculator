@@ -1,4 +1,4 @@
-#include "MathAnalitical.hpp"
+#include "MathAnalytical.hpp"
 
 Division::Division(Expression *op1, Expression *op2)
 {

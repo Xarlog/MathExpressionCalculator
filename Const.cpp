@@ -1,4 +1,4 @@
-#include "MathAnalitical.hpp"
+#include "MathAnalytical.hpp"
 #include <format>
 double Const::eval(const double x){
     return value;

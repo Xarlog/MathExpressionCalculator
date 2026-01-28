@@ -1,4 +1,4 @@
-#include "MathAnalitical.hpp"
+#include "MathAnalytical.hpp"
 
 Negative::Negative(){
     args.resize(1);

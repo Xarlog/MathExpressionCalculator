@@ -2,7 +2,7 @@
 #include <vector>
 #include <numbers>
 #include <cmath>
-#include "MathAnalitical.hpp"
+#include "MathAnalytical.hpp"
 int main(int, char**){
     /*Expression* e=new Addition(new Var(),new Multiplication(new Var(),new Addition(new Var(),new Const(3))));
     e->print();

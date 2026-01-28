@@ -1,4 +1,4 @@
-#include "MathAnalitical.hpp"
+#include "MathAnalytical.hpp"
 
 Addition::Addition(Expression* op1, Expression* op2){
     args.resize(2);

@@ -1,4 +1,4 @@
-#include "MathAnalitical.hpp"
+#include "MathAnalytical.hpp"
 Multiplication::Multiplication(Expression* op1, Expression* op2){
     args.resize(2);
     args[0]=op1;

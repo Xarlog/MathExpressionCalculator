@@ -1,4 +1,4 @@
-#include "MathAnalitical.hpp"
+#include "MathAnalytical.hpp"
 
 Subtraction::Subtraction(Expression* op1, Expression* op2){
     args.resize(2);

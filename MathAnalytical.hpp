@@ -1,5 +1,5 @@
-#ifndef MATH_ANALITICAL_HPP
-#define MATH_ANALITICAL_HPP
+#ifndef MATH_ANALYTICAL_HPP
+#define MATH_ANALYTICAL_HPP
 #include <vector>
 #include <cmath>
 #include <string>
