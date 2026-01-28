@@ -1,3 +1,6 @@
 # MathExpressionCalculator
-A simple program designed to handle mathematical expressions and calculate their derivatives.
-It exists primarily for educational purposes.
+A simple library for handling mathematical expression in an analitical matter. Supports various elementary functions and analitical derivation.
+## Dependencies:
+None
+## Status:
+In development
