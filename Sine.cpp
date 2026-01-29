@@ -31,3 +31,7 @@ Expression *Sine::simplify()
         return e->args[0];
     return new Sine(e);
 }
+
+Expression* Sine::copy(){
+    return new Sine(args[0]->copy());
+}

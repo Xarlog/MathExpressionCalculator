@@ -30,3 +30,7 @@ Expression* Cosine::simplify()
     if(dynamic_cast<ArcCosine*>(e)) return e->args[0];
     return new Cosine(e);
 }
+
+Expression* Cosine::copy(){
+    return new Cosine(args[0]->copy());
+}

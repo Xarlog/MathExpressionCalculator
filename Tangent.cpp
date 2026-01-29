@@ -34,3 +34,7 @@ Expression *Tangent::simplify()
         return e->args[0];
     return new Tangent(e);
 }
+
+Expression* Tangent::copy(){
+    return new Tangent(args[0]->copy());
+}

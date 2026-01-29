@@ -28,3 +28,7 @@ Expression* Subtraction::simplify(){
     if(dynamic_cast<Const*>(e2)&&e2->eval(0)==0) return e1;
     return new Subtraction(e1,e2); 
 }
+
+Expression* Subtraction::copy(){
+    return new Subtraction(args[0]->copy(),args[1]->copy());
+}

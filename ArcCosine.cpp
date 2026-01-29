@@ -32,3 +32,7 @@ Expression *ArcCosine::simplify()
     Expression *e = args[0]->simplify();
     return new ArcCosine(e);
 }
+
+Expression* ArcCosine::copy(){
+    return new ArcCosine(args[0]->copy());
+}

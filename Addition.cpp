@@ -29,3 +29,7 @@ Expression* Addition::simplify(){
     if(dynamic_cast<Const*>(e2)&&e2->eval(0)==0) return e1;
     return new Addition(e1,e2); 
 }
+
+Expression* Addition::copy(){
+    return new Addition(args[0]->copy(),args[1]->copy());
+}

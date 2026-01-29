@@ -31,3 +31,7 @@ Expression* Multiplication::simplify(){
     if(dynamic_cast<Negative*>(e1)&&dynamic_cast<Negative*>(e2)) return new Multiplication(e1,e2);
     return new Multiplication(e1,e2); 
 }
+
+Expression* Multiplication::copy(){
+    return new Multiplication(args[0]->copy(),args[1]->copy());
+}

@@ -30,3 +30,7 @@ Expression* Negative::simplify(){
     }
     return new Negative(e);
 }
+
+Expression* Negative::copy(){
+    return new Negative(args[0]->copy());
+}

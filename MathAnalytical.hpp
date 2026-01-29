@@ -9,8 +9,9 @@ class Expression
     std::vector<Expression*> args;
     virtual double eval(double x){return 0;};
     virtual Expression* derivate(){return nullptr;};
-    virtual std::string to_string(){}; 
+    virtual std::string to_string(){return "UNDEFINED";}; 
     virtual Expression* simplify(){return this;}
+    virtual Expression* copy(){return nullptr;};
     protected:
     Expression(){}
 };
@@ -22,6 +23,7 @@ class Const:public Expression
     double eval(const double x) override;
     Expression* derivate() override;
     std::string to_string() override;
+    Expression* copy() override;
 };
 class Var:public Expression
 {
@@ -29,6 +31,7 @@ class Var:public Expression
     double eval(const double x) override;
     Expression* derivate() override;
     std::string to_string() override;
+    Expression* copy() override;
 };
 class Negative: public Expression
 {
@@ -39,6 +42,7 @@ class Negative: public Expression
     Expression* derivate() override;
     std::string to_string() override;
     Expression* simplify() override;
+    Expression* copy() override;
 };
 class Addition: public Expression
 {
@@ -48,6 +52,7 @@ class Addition: public Expression
     Expression* derivate() override;
     std::string to_string() override;
     Expression* simplify() override;
+    Expression* copy() override;
 };
 class Subtraction: public Expression
 {
@@ -57,6 +62,7 @@ class Subtraction: public Expression
     Expression* derivate() override;
     std::string to_string() override;
     Expression* simplify() override;
+    Expression* copy() override;
 };
 class Multiplication: public Expression
 {
@@ -66,6 +72,7 @@ class Multiplication: public Expression
     Expression* derivate() override;
     std::string to_string() override;
     Expression* simplify() override;
+    Expression* copy() override;
 };
 class Exp: public Expression
 {
@@ -76,6 +83,7 @@ public:
     Expression* derivate() override;
     std::string to_string() override;
     Expression* simplify() override;
+    Expression* copy() override;
 };
 class Division: public Expression
 {
@@ -85,6 +93,7 @@ class Division: public Expression
     Expression* derivate() override;
     std::string to_string() override;
     Expression* simplify() override;
+    Expression* copy() override;
 };
 class NatLog:public Expression
 {
@@ -95,6 +104,7 @@ class NatLog:public Expression
     Expression* derivate() override;
     std::string to_string() override;
     Expression* simplify() override;
+    Expression* copy() override;
 };
 class Pow: public Expression
 {
@@ -104,6 +114,7 @@ class Pow: public Expression
     Expression* derivate() override;
     std::string to_string() override;
     Expression* simplify() override;
+    Expression* copy() override;
 };
 class Cosine: public Expression
 {
@@ -114,6 +125,7 @@ class Cosine: public Expression
     Expression* derivate() override;
     std::string to_string() override;
     Expression* simplify() override;
+    Expression* copy() override;
 };
 class Sine: public Expression
 {
@@ -124,6 +136,7 @@ class Sine: public Expression
     Expression* derivate() override;
     std::string to_string() override;
     Expression* simplify() override;
+    Expression* copy() override;
 };
 class Tangent: public Expression
 {
@@ -134,6 +147,7 @@ class Tangent: public Expression
     Expression* derivate() override;
     std::string to_string() override;
     Expression* simplify() override;
+    Expression* copy() override;
 };
 class ArcSine: public Expression
 {
@@ -144,6 +158,7 @@ class ArcSine: public Expression
     Expression* derivate() override;
     std::string to_string() override;
     Expression* simplify() override;
+    Expression* copy() override;
 };
 class ArcCosine:public Expression
 {
@@ -154,6 +169,7 @@ class ArcCosine:public Expression
     Expression* derivate() override;
     std::string to_string() override;
     Expression* simplify() override;
+    Expression* copy() override;
 };
 class ArcTangent:public Expression
 {
@@ -164,6 +180,7 @@ class ArcTangent:public Expression
     Expression* derivate() override;
     std::string to_string() override;
     Expression* simplify() override;
+    Expression* copy() override;
 };
 
 #endif

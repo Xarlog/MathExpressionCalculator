@@ -31,3 +31,7 @@ Expression *ArcSine::simplify()
     Expression *e = args[0]->simplify();
     return new ArcSine(e);
 }
+
+Expression* ArcSine::copy(){
+    return new ArcSine(args[0]->copy());
+}

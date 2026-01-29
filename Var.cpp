@@ -11,3 +11,7 @@ Expression* Var::derivate(){
 std::string Var::to_string(){
     return "x";
 }
+
+Expression* Var::copy(){
+    return new Var();
+}

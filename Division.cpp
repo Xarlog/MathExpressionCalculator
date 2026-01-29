@@ -27,3 +27,7 @@ Expression *Division::simplify()
     Expression *e2 = args[1]->simplify();
     return new Division(e1, e2);
 }
+
+Expression* Division::copy(){
+    return new Division(args[0]->copy(),args[1]->copy());
+}

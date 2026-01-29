@@ -27,3 +27,7 @@ Expression *Pow::simplify()
     Expression *e2 = args[1]->simplify();
     return new Pow(e1, e2);
 }
+
+Expression* Pow::copy(){
+    return new Pow(args[0]->copy(),args[1]->copy());
+}

@@ -30,3 +30,7 @@ Expression *ArcTangent::simplify()
     Expression *e = args[0]->simplify();
     return new ArcTangent(e);
 }
+
+Expression* ArcTangent::copy(){
+    return new ArcTangent(args[0]->copy());
+}

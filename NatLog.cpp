@@ -30,3 +30,7 @@ Expression *NatLog::simplify()
     Expression *e = args[0]->simplify();
     return new NatLog(e);
 }
+
+Expression* NatLog::copy(){
+    return new NatLog(args[0]->copy());
+}

@@ -34,3 +34,7 @@ Expression *Exp::simplify()
         return new Const(pow(std::numbers::e_v<double>, e->eval(0)));
     return new Exp(e);
 }
+
+Expression* Exp::copy(){
+    return new Exp(args[0]->copy());
+}

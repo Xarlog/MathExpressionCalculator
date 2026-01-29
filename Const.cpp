@@ -9,3 +9,7 @@ Expression* Const::derivate(){
 std::string Const::to_string(){
     return std::format("{}",value);
 }
+
+Expression* Const::copy(){
+    return new Const(value);
+}
