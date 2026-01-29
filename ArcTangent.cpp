@@ -3,12 +3,12 @@
 ArcTangent::ArcTangent()
 {
     args.resize(1);
-    args[0] = new Var;
+    args[0].reset(new Var);
 }
 ArcTangent::ArcTangent(Expression *op)
 {
     args.resize(1);
-    args[0] = op;
+    args[0].reset(op);
 }
 
 double ArcTangent::eval(double x)
@@ -17,7 +17,7 @@ double ArcTangent::eval(double x)
 }
 Expression *ArcTangent::derivate()
 {
-    return new Division(args[0]->derivate(), new Addition(new Const(1), new Pow(args[0], new Const(2))));
+    return new Division(args[0]->derivate(), new Addition(new Const(1), new Pow(args[0]->copy(), new Const(2))));
 }
 
 std::string ArcTangent::to_string()

@@ -3,8 +3,8 @@
 Division::Division(Expression *op1, Expression *op2)
 {
     args.resize(2);
-    args[0] = op1;
-    args[1] = op2;
+    args[0] .reset(op1);
+    args[1] .reset(op2);
 }
 
 double Division::eval(double x)
@@ -13,7 +13,7 @@ double Division::eval(double x)
 }
 Expression *Division::derivate()
 {
-    return new Division(new Subtraction(new Multiplication(args[0]->derivate(), args[1]), new Multiplication(args[0], args[1]->derivate())), new Multiplication(args[1], args[1]));
+    return new Division(new Subtraction(new Multiplication(args[0]->derivate(), args[1]->copy()), new Multiplication(args[0]->copy(), args[1]->derivate())), new Multiplication(args[1]->copy(), args[1]->copy()));
 }
 
 std::string Division::to_string()

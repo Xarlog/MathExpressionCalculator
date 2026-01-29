@@ -3,10 +3,11 @@
 #include <vector>
 #include <cmath>
 #include <string>
+#include <memory>
 class Expression
 {
     public:
-    std::vector<Expression*> args;
+    std::vector<std::unique_ptr<Expression>> args;
     virtual double eval(double x){return 0;};
     virtual Expression* derivate(){return nullptr;};
     virtual std::string to_string(){return "UNDEFINED";}; 

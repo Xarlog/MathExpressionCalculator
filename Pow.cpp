@@ -3,8 +3,8 @@
 Pow::Pow(Expression *op1, Expression *op2)
 {
     args.resize(2);
-    args[0] = op1;
-    args[1] = op2;
+    args[0].reset(op1);
+    args[1].reset(op2);
 }
 
 double Pow::eval(double x)
@@ -13,7 +13,9 @@ double Pow::eval(double x)
 }
 Expression *Pow::derivate()
 {
-    return new Multiplication(new Exp(new Multiplication(new NatLog(args[0]), args[1])), (new Multiplication(new NatLog(args[0]), args[1]))->derivate());
+    return new Multiplication(
+        new Exp(new Multiplication(new NatLog(args[0]->copy()), args[1]->copy())),
+         (new Multiplication(new NatLog(args[0]->copy()), args[1]->copy()))->derivate());
 }
 
 std::string Pow::to_string()

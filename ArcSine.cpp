@@ -3,13 +3,13 @@
 ArcSine::ArcSine()
 {
     args.resize(1);
-    args[0] = new Var;
+    args[0].reset(new Var);
 }
 
 ArcSine::ArcSine(Expression *op)
 {
     args.resize(1);
-    args[0] = op;
+    args[0].reset(op);
 }
 
 double ArcSine::eval(double x)
@@ -19,7 +19,9 @@ double ArcSine::eval(double x)
 
 Expression *ArcSine::derivate()
 {
-    return new Division(args[0]->derivate(), new Pow(new Subtraction(new Const(1), new Pow(args[0], new Const(2))), new Const(0.5)));
+    return new Division(
+        args[0]->derivate(), 
+        new Pow(new Subtraction(new Const(1), new Pow(args[0]->copy(), new Const(2))), new Const(0.5)));
 }
 std::string ArcSine::to_string()
 {

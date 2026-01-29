@@ -3,13 +3,13 @@
 NatLog::NatLog()
 {
     args.resize(1);
-    args[0] = new Var;
+    args[0].reset(new Var);
 }
 
 NatLog::NatLog(Expression *op)
 {
     args.resize(1);
-    args[0] = op;
+    args[0].reset(op);
 }
 double NatLog::eval(double x)
 {
@@ -18,7 +18,7 @@ double NatLog::eval(double x)
 
 Expression *NatLog::derivate()
 {
-    return new Division(args[0]->derivate(), args[0]);
+    return new Division(args[0]->derivate(), args[0]->copy());
 }
 std::string NatLog::to_string()
 {

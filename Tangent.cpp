@@ -3,13 +3,13 @@
 Tangent::Tangent()
 {
     args.resize(1);
-    args[0] = new Var;
+    args[0].reset(new Var);
 }
 
 Tangent::Tangent(Expression *op)
 {
     args.resize(1);
-    args[0] = op;
+    args[0].reset(op);
 }
 
 double Tangent::eval(double x)
@@ -26,13 +26,13 @@ std::string Tangent::to_string()
 {
     return "tg(" + args[0]->to_string() + ")";
 }
-
+#define is_of_type(x,type) dynamic_cast<type*>(x.get())
 Expression *Tangent::simplify()
 {
-    Expression *e = args[0]->simplify();
-    if (dynamic_cast<ArcTangent *>(e))
-        return e->args[0];
-    return new Tangent(e);
+    std::unique_ptr<Expression> e ( args[0]->simplify());
+    if (is_of_type(e,ArcTangent))
+        return e->args[0].release();
+    return new Tangent(e.release());
 }
 
 Expression* Tangent::copy(){
